@@ -3,12 +3,15 @@ package com.onlinelearning.userservice.model;
 import jakarta.persistence.*;
 import java.util.UUID;
 
+import org.hibernate.annotations.UuidGenerator;
+
 @Entity
 @Table(name = "users")
 public class User {
 
     @Id
-    @GeneratedValue
+    @UuidGenerator
+    @Column(columnDefinition = "Binary(16)")
     private UUID id;
 
     private String name;
