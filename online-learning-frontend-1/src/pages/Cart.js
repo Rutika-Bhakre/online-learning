@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import CartItem from '../components/CartItem';
 
 const Cart = () => {
   const { cartItems, totalPrice } = useCart();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <div className="container py-5">
