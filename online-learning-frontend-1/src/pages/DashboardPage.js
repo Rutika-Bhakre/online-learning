@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import courses from '../data/courses';
 
 const DashboardPage = () => {
+  const navigate = useNavigate();
   const enrolledCourses = courses.filter((c) => c.enrolled);
 
   return (
@@ -51,8 +53,8 @@ const DashboardPage = () => {
           ))
         ) : (
           <div className="col-12 text-center py-5">
-            <h5 className="text-muted">You are not enrolled in any courses yet.</h5>
-            <button className="btn btn-outline-primary mt-3 px-4">Browse Courses</button>
+            <h5 className="text-muted mb-4">You are not enrolled in any courses yet.</h5>
+            <button onClick={() => navigate('/courses')} className="btn btn-outline-primary px-4">Browse Courses</button>
           </div>
         )}
       </div>
