@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
-  // const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="navbar">
@@ -11,24 +11,31 @@ const Navbar = () => {
         <Link to="/" className="navbar-logo">
           EduPortal
         </Link>
-        <ul className="nav-menu">
+        <div className="menu-icon" onClick={() => setIsOpen(!isOpen)}>
+          <div className={isOpen ? 'hamburger open' : 'hamburger'}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <ul className={isOpen ? 'nav-menu active' : 'nav-menu'}>
           <li className="nav-item">
-            <Link to="/" className="nav-links">
+            <Link to="/" className="nav-links" onClick={() => setIsOpen(false)}>
               Home
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/courses" className="nav-links">
+            <Link to="/courses" className="nav-links" onClick={() => setIsOpen(false)}>
               Courses
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/dashboard" className="nav-links">
+            <Link to="/dashboard" className="nav-links" onClick={() => setIsOpen(false)}>
               Dashboard
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/cart" className="nav-links">
+            <Link to="/cart" className="nav-links" onClick={() => setIsOpen(false)}>
               Cart
             </Link>
           </li>
